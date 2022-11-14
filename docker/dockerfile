@@ -1,0 +1,18 @@
+FROM openjdk:11
+MAINTAINER Vitalii <fatum09@gmail.com>
+
+ADD ./target/CryptoInvestment.jar /app/
+
+CMD ["java", "-jar", "-Dspring.profiles.active=dev,jdbcdev", "/app/CryptoInvestment.jar"]
+
+EXPOSE 8091
+
+# cd .\docker\
+# docker build -t cryptoinvestment-api -f .\dockerfile ..
+# docker image tag cryptoinvestment-api:latest fatum09/cryptoinvestment-api:latest
+# docker images -a
+# docker image push fatum09/cryptoinvestment-api:latest
+# docker run --rm -p 8091:8091 fatum09/cryptoinvestment-api:latest
+# sudo docker build -t cryptoinvestment-api .
+# docker run -d --rm -p 8091:8091 --name cryptoInvestment-api cryptoInvestment-api:latest
+# docker run -it -p 8091:8091 cryptoInvestment-api:latest
